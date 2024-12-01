@@ -1,0 +1,44 @@
+@import "src/global.scss";
+
+.checkout-container {
+	position: sticky;
+	bottom: 0;
+	width: 100%;
+	padding: 10px;
+	background-color: #fff;
+	box-shadow: 0px -2.5px 5px #ccc;
+	align-items: center;
+	justify-content: space-between;
+	display: flex;
+	flex-direction: row;
+}
+
+.button-container {
+	width: 40%;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+}
+
+.button-primary {
+	margin-top: 5px;
+}
+
+.price-container {
+	width: 55%;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+
+	>span {
+		font-size: 4vw;
+	}
+}
+
+.total {
+	margin-right: 30%;
+}
+
+button {
+	right: 2vw;
+}

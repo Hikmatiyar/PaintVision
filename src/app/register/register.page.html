@@ -1,0 +1,98 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-title>Create account</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-card>
+		<form (ngSubmit)="register()" #registerForm="ngForm">
+			<div class="form-group">
+				<label for="firstName" class="control-label">First Name</label>
+				<ion-input id="fistName" name="firstName" class="form-control" required [(ngModel)]="newUser.firstName"
+					#firstName="ngModel" placeholder="First Name" autocapitalize="on"></ion-input>
+				<span *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="error">
+					First name is required.
+				</span>
+			</div>
+			<div class="form-group">
+				<label for="lastName" class="control-label">Last Name</label>
+				<ion-input id="lastName" name="lastName" class="form-control" required [(ngModel)]="newUser.lastName"
+					#lastName="ngModel" placeholder="Last Name" autocapitalize="on"></ion-input>
+				<span *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="error">
+					Last name is required.
+				</span>
+			</div>
+			<div class="form-group">
+				<label for="email" class="control-label">Email</label>
+				<ion-input type="email" id="email" name="email" class="form-control" required email appEmailValidation
+					[(ngModel)]="newUser.email" #email="ngModel" placeholder="Email"
+					[ngModelOptions]="{ updateOn: 'blur' }"></ion-input>
+
+				<div *ngIf="email.invalid && (email.dirty || email.touched)" class="error">
+					<span *ngIf="email.errors?.required">
+						Email is required.
+					</span>
+
+					<span *ngIf="email.errors?.email">
+						Email is invalid.
+					</span>
+
+					<span *ngIf="email.errors.isDuplicate">
+						Email is taken.
+					</span>
+
+					<span *ngIf="email.errors.noConnection">
+						Could not connect to server.
+					</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="password" class="control-label">Password</label>
+				<ion-input type="password" id="password" name="password" class="form-control" required minlength="8"
+					maxlength="16" [(ngModel)]="newUser.password" #password="ngModel" placeholder="Password"
+					pattern="(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}"></ion-input>
+
+				<div *ngIf="password.invalid && (password.dirty || password.touched)" class="error">
+					<span *ngIf="password.errors.required">
+						Password is required.
+					</span>
+					<span *ngIf="password.errors.minlength">
+						Password must be at least 8 characters long.
+					</span>
+					<span *ngIf="password.errors.maxlength">
+						Password must be less than 16 characters long.
+					</span>
+					<span *ngIf="password.errors.pattern && !password.errors.required">
+						Password must have: <br />
+						One capital letter, one lowercase letter, one number, and one special character
+					</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<ion-label for="confirmPassword" class="control-label">Confirm Password</ion-label>
+				<ion-input type="password" id="confirmPassword" name="confirmPassword" appMustEqual="password" required
+					class="form-control" maxlength="16" [(ngModel)]="compare.confirmPassword" #confirmPassword="ngModel"
+					placeholder="Confim Password"></ion-input>
+
+				<div *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)"
+					class="error">
+					<span *ngIf="confirmPassword.errors.required">
+						Password is required.
+					</span>
+					<span *ngIf="confirmPassword.errors?.notEqual && !confirmPassword.errors?.required">
+						Passwords must match.
+					</span>
+				</div>
+			</div>
+
+			<div class="button">
+				<ion-button (click)="cancel()" expand="block">Cancel</ion-button>
+				<ion-button type="submit" expand="block" [disabled]="!registerForm.form.valid">Register</ion-button>
+				<br />
+				<span *ngIf="registerError" class="error">{{registerError}}</span>
+			</div>
+
+		</form>
+	</ion-card>
+</ion-content>

@@ -1,0 +1,11 @@
+<div class="order-header" (click)="toggleExpanded()">
+	<span>{{getOrderNumber()}}</span>
+	<span>{{getOrderDate()}}</span>
+	<ion-icon name="arrow-down" *ngIf="!expanded"></ion-icon>
+	<ion-icon name="arrow-up" *ngIf="expanded"></ion-icon>
+</div>
+
+<div *ngIf="expanded" class="order-information">
+	<span>Amount Paid: {{currencyIcon}}{{getTotalCost()}}</span>
+	<button class="button-primary" (click)="goToOrderDetail()">View Order Details</button>
+</div>

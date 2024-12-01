@@ -1,0 +1,29 @@
+<div class="job-list-header">
+	<input type="checkbox" [checked]="isSelected()" (change)="toggleSelected()" />
+	<div (click)="toggleExpanded()">
+		<span>{{job.jobName}}</span>
+		<ion-badge>{{getJobStatus()}}</ion-badge>
+		<ion-icon name="arrow-down" *ngIf="!expanded"></ion-icon>
+		<ion-icon name="arrow-up" *ngIf="expanded"></ion-icon>
+	</div>
+</div>
+
+<div *ngIf="expanded">
+	<div class="job-information">
+		<div class="job-buttons">
+			<button class="button-primary" (click)="goToJobEdit()">
+				<ion-icon name="create"></ion-icon>
+				Edit Job
+			</button>
+			<button class="delete" (click)="presentDeleteJobAlert()">
+				<ion-icon name="trash"></ion-icon>
+				Delete Job
+			</button>
+		</div>
+		<span>Total Rooms: {{getRoomCount()}}</span>
+		<br />
+		<span>Total Windows: {{getWindowCount()}}</span>
+		<br />
+		<span>Job Price: {{getJobPrice()}}</span>
+	</div>
+</div>

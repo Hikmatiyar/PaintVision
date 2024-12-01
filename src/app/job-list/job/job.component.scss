@@ -1,0 +1,55 @@
+@import 'src/global.scss';
+
+.job-list-header {
+	display: flex;
+	align-items: center;
+
+	>input {
+		margin-right: 10px;
+	}
+
+	>div {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		>ion-badge {
+			margin-left: auto;
+		}
+	}
+}
+
+.job-information {
+
+	&,
+	.job-buttons {
+		display: flex;
+	}
+
+	background-color: #eee;
+	flex-direction: column;
+	margin-top: 10px;
+	margin-bottom: 5px;
+	padding: 5px;
+	border-bottom: 1px solid $colorSecondary;
+}
+
+.job-buttons {
+	justify-content: space-evenly;
+	margin-bottom: 5px;
+
+	>button {
+		margin: 5px;
+		max-width: 50%;
+
+		&.delete {
+			background-color: red;
+			color: white;
+		}
+	}
+
+	ion-icon[name="trash"] {
+		color: black;
+	}
+}

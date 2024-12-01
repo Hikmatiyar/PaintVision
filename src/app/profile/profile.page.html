@@ -1,0 +1,32 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title>
+			Profile
+		</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div class="content">
+		<ion-list>
+			<ion-list-header>Logged in as: {{user.getName()}}</ion-list-header>
+			<ion-item>
+				<ion-label>Units: {{getUnits()}}</ion-label>
+				<ion-toggle [checked]="getUnits() === 'cm'" (click)="toggleUnits()"></ion-toggle>
+			</ion-item>
+			<ion-item (click)="goToManageProfile()">
+				Manage Profile
+			</ion-item>
+			<ion-item (click)="goToShipping()">
+				Manage Addresses
+			</ion-item>
+			<ion-item (click)="goToHistory()">
+				View Order History
+			</ion-item>
+		</ion-list>
+		<ion-button expand="block" (click)="logout()">Logout</ion-button>
+	</div>
+</ion-content>

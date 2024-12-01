@@ -1,0 +1,18 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title>
+			Order History
+		</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div class="order-container">
+		<div class="order" *ngFor="let order of orders$ | async">
+			<app-order [order]="order"></app-order>
+		</div>
+	</div>
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "painting-prep-app",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

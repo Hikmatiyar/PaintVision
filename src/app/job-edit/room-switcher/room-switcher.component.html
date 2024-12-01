@@ -1,0 +1,24 @@
+<div class="header">
+	<div (click)="namePicker()" class="add-room pointer">
+		<ion-icon name="add-circle"></ion-icon>
+	</div>
+	<select [(ngModel)]="activeRoom" class="room-selector">
+		<option *ngFor="let room of job.rooms" [ngValue]="room">
+			{{room.roomName}}
+		</option>
+	</select>
+
+	<ion-icon name="trash" (click)="presentRoomDeleteAlert()" size="large"></ion-icon>
+</div>
+
+<div class="body" *ngIf="job.rooms.length > 0">
+	<div class="window-container" *ngFor="let window of activeRoom.windows">
+		<app-window-form [window]="window" (requestDeletion)="presentDeleteWindowAlert(window)"
+			(cameraEnter)="onCameraEnter()"></app-window-form>
+	</div>
+
+	<div class="add-window-button" (click)="presentWindowNamePicker()">
+		<ion-icon name="add-circle"></ion-icon>
+		<span>Add window</span>
+	</div>
+</div>

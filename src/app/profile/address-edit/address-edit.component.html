@@ -1,0 +1,38 @@
+<div class="form-group">
+	<label for="line1">Street</label>
+	<ion-input type="text" id="line1" placeholder="Line 1 (Street)" [(ngModel)]="address.line1"></ion-input>
+</div>
+
+<div class="form-group">
+	<label for="line2">Unit/Apt #</label>
+	<ion-input type="text" id="line2" placeholder="Line 2 (Apartment #)" [(ngModel)]="address.line2">
+	</ion-input>
+</div>
+
+<div class="form-group">
+	<label for="city">City</label>
+	<ion-input type="text" id="city" placeholder="City" [(ngModel)]="address.townCity"></ion-input>
+</div>
+
+<div class="form-group">
+	<label for="state">State</label>
+	<ion-input type="text" id="state" placeholder="State" [(ngModel)]="address.provinceState"></ion-input>
+</div>
+
+<div class="form-group">
+	<label for="postalCode">Postal Code</label>
+	<ion-input type="text" id="postalCode" placeholder="Postal Code" [(ngModel)]="address.postalCode">
+	</ion-input>
+</div>
+
+<div class="form-group">
+	<label for="country">Country</label>
+	<ion-input type="text" id="country" placeholder="Country" [(ngModel)]="address.country"></ion-input>
+</div>
+
+<div class="form-group">
+	<label for="phone">Phone</label>
+	<ion-input type="text" id="phone" placeholder="Phone #" [(ngModel)]="address.phone"></ion-input>
+</div>
+
+<button class="button-primary center" (click)="saveAddress()">Save Address</button>

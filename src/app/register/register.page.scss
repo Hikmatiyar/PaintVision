@@ -1,0 +1,15 @@
+@import 'src/global.scss';
+
+form {
+	padding: 8px;
+}
+
+.form-group {
+	display: flex;
+	flex-direction: column;
+}
+
+.button {
+	display: inline-flex;
+	width: 100%;
+}

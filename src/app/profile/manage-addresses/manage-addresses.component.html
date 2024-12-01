@@ -1,0 +1,59 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title>
+			Manage Shipping Addresses
+		</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div class="form">
+		<div *ngIf="!edit">
+			<button class="button-primary center" (click)="addAddress()">Add Address</button>
+			<span *ngIf="getAddresses().length === 0">No addresses to show.</span>
+
+			<ion-card *ngFor="let address of getAddresses()">
+				<div class="info-group">
+					<h3>Street</h3>
+					<span>{{address.line1}}</span>
+				</div>
+				<div class="info-group">
+					<h3>Unit/Apt #</h3>
+					<span>{{address.line2}}</span>
+				</div>
+				<div>
+					<div class="info-group">
+						<h3>City</h3>
+						<span>{{address.townCity}}</span>
+					</div>
+					<div class="info-group">
+						<h3>State / Province</h3>
+						<span>{{address.provinceState}}</span>
+					</div>
+					<div class="info-group">
+						<h3>Country</h3>
+						<span>{{address.country}}</span>
+					</div>
+					<div class="info-group">
+						<h3>Postal Code</h3>
+						<span>{{address.postalCode}}</span>
+					</div>
+				</div>
+				<div class="info-group">
+					<h3>Phone</h3>
+					<span>{{address.phone}}</span>
+				</div>
+
+				<button class="button-primary center" (click)="toggleEdit(address)">Edit</button>
+			</ion-card>
+		</div>
+
+		<ion-card *ngIf="edit">
+			<h3>Add New Address</h3>
+			<app-edit-address [address]="selectedAddress" (saved)="savedAddress()"></app-edit-address>
+		</ion-card>
+	</div>
+</ion-content>

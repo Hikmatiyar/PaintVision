@@ -1,0 +1,29 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title>
+			Select a Shipping Address
+		</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div class="address-container">
+		<button *ngIf="!addingAddress" class="button-primary center" (click)="addAddress()">Add address</button>
+		<app-edit-address *ngIf="addingAddress" [address]="newAddress" (saved)="newAddressSaved()"></app-edit-address>
+
+		<div *ngFor="let address of addresses" class="address">
+			<input type="radio" [(ngModel)]="selectedAddress" [value]="address" />
+			<div>
+				<p>{{address.line1}} {{address.line2}}</p>
+				<p>{{address.townCity}} {{address.stateProvince}} {{address.country}}</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="continue-container">
+		<button [disabled]="!selectedAddress" class="button" (click)="goToOrderReview()">Continue</button>
+	</div>
+</ion-content>

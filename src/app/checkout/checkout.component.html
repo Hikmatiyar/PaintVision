@@ -1,0 +1,21 @@
+<div class="checkout-container">
+
+	<div *ngIf="!isJobList()" class="price-container">
+		<span>Total Job Price = {{getJobPrice()}}</span>
+		<span>Current Room Price = {{getRoomPrice()}}</span>
+	</div>
+	<div *ngIf="!isJobList()" class="button-container">
+		<button class="button-secondary" (click)="saveJob()">Save</button>
+		<!--  <button class="button-primary" (click)="goToOrderPage()">Check Out Now</button>   -->
+	</div>
+
+
+	<div *ngIf="isJobList()" class="price-container">
+		<span>Price of selected = {{getSelectedJobsPrice()}}</span>
+	</div>
+	<div *ngIf="isJobList()" class="button-container">
+		<!-- <button class="button-secondary" (click)="pushToManager()">Push Selected Job(s) To Manager</button> -->
+		<button class="button-secondary" (click)="goToSelectAddress()">Check Out Selected Job(s)</button>
+	</div>
+
+</div>

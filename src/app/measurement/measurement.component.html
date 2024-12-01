@@ -1,0 +1,18 @@
+<div class="padded">
+	<span>{{message}}</span>
+	<!--  https://drive.google.com/thumbnail?id=1n7cOeu7Xw-Z9Rl-QLEQgYVhpTJ6VkVGb -->
+	<div class="overlay">
+		<a *ngFor="let corner of corners" class="corner-point" [ngStyle]="{'top.px': corner[1], 'left.px': corner[0]}"
+			(click)="selectCorner(corner)">o</a>
+		<a *ngFor="let corner of selectedCorners" class="corner-point selected"
+			[ngStyle]="{'top.px': corner[1], 'left.px': corner[0]}">o</a>
+	</div>
+
+	<img class="image-preview" id="img" [src]="uri" [hidden]="!uri">
+
+	<div class="btn-group">
+		<button class="reject" (click)="rejectPoints()">Reset corners</button>
+		<button class="retake" (click)="rejectPhoto()">Retake image</button>
+		<button class="accept" (click)="acceptCorners()" [disabled]="selectedCorners.length !== 4">Confirm </button>
+	</div>
+</div>

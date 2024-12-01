@@ -1,0 +1,21 @@
+@import "src/global.scss";
+
+ion-card {
+	padding: 8px;
+}
+
+.form {
+	padding: 8px;
+}
+
+.info-group,
+.form-group {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 10px;
+}
+
+button.button-primary {
+	display: block;
+	min-width: 20%;
+}

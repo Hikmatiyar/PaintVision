@@ -1,0 +1,56 @@
+@import 'src/global.scss';
+
+.title {
+	right: 0px;
+}
+
+thead,
+tbody {
+	display: flex;
+	justify-content: space-between;
+}
+
+.order-info {
+	padding: 5px;
+}
+
+.job-name {
+	padding: 5px;
+}
+
+.room-name {
+	padding: 5px;
+}
+
+.window-info {
+	margin-left: auto;
+	width: 90%;
+}
+
+.total {
+	padding: 5px;
+	justify-content: center;
+}
+
+.total-row {
+	padding: 5px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.total-col {
+	font-size: 15px;
+}
+
+.total-card {
+	padding: 5px;
+}
+
+.address-card {
+	padding: 5px;
+}
+
+.job-cost {
+	text-align: right;
+	padding-right: 5px;
+}

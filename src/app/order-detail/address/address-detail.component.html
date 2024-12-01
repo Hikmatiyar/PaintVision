@@ -1,0 +1,27 @@
+<div *ngIf="address">
+	<div class="total-col">
+		{{address.line1}}
+	</div>
+	<div class="total-col">
+		{{address.line2}}
+	</div>
+	<div class="total-col">
+		{{address.townCity}}
+	</div>
+	<div class="total-col">
+		{{address.provinceState}}
+	</div>
+	<div class="total-col">
+		{{address.postalCode}}
+	</div>
+	<div class="total-col">
+		{{address.phone}}
+	</div>
+	<div class="total-col">
+		{{address.country}}
+	</div>
+</div>
+
+<div *ngIf="!address">
+	The address could not be retrieved.
+</div>

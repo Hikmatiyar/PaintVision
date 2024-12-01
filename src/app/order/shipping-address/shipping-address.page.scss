@@ -1,0 +1,42 @@
+@import "src/global.scss";
+
+.address-container {
+	display: inline-block;
+	overflow-y: scroll;
+	padding: 5px;
+	height: calc(100% - (#{$checkoutComponentHeight + 2vh}));
+	width: 100%;
+}
+
+.address {
+	padding: 5px;
+	display: flex;
+
+	> div {
+		margin-left: 10px;
+	}
+}
+
+.continue-container {
+	position: sticky;
+	bottom: 0;
+	width: 100%;
+	padding: 10px;
+	background-color: #c6c;
+	height: $checkoutComponentHeight;
+}
+
+.address-format {
+	padding: 10%;
+}
+
+.form-group>* {
+	display: block;
+	padding: 10px;
+}
+
+.button {
+	background: $colorSecondary;
+	color: white;
+	float: right;
+}

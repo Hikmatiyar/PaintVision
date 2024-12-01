@@ -1,0 +1,13 @@
+@import 'src/global.scss';
+
+$form_margin: 20px;
+
+.order-header {
+	display: flex;
+	justify-content: space-between;
+}
+
+.order-information {
+	display: flex;
+	flex-direction: column;
+}

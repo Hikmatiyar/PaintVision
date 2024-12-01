@@ -1,0 +1,42 @@
+<div class="total">
+	<div class="total-row" *ngFor="let job of getJobs()">
+		<div class="total-col">
+			{{job.jobName}}
+		</div>
+		<div class="total-num">
+			{{getJobCost(job)}}
+		</div>
+	</div>
+	<div class="total-row">
+		<div class="total-col">
+			Total Cost:
+		</div>
+		<div class="total-num">
+			{{getTotalJobCost()}}
+		</div>
+	</div>
+	<div class="total-row">
+		<div class="total-col">
+			Estimated Shipping Cost:
+		</div>
+		<div class="total-num">
+			{{getShippingCost()}}
+		</div>
+	</div>
+	<div class="total-row">
+		<div class="total-col">
+			Tax: {{getTaxPercentage()}}
+		</div>
+		<div class="total-num">
+			{{getTaxCost()}}
+		</div>
+	</div>
+	<div class="total-row">
+		<div class="total-col">
+			Total Payment:
+		</div>
+		<div class="total-num">
+			{{getTotalCost()}}
+		</div>
+	</div>
+</div>

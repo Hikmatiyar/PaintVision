@@ -1,0 +1,23 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-title>
+			Open Jobs
+		</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+		<ion-refresher-content pullingText="Release to refresh..."></ion-refresher-content>
+	</ion-refresher>
+
+	<span *ngIf="jobs.length === 0">There are no jobs.</span>
+
+	<div class="job-container">
+		<div class="job" *ngFor="let job of jobs">
+			<app-job [job]="job" (delete)="deleteJob(job)"></app-job>
+		</div>
+	</div>
+
+	<app-checkout></app-checkout>
+</ion-content>

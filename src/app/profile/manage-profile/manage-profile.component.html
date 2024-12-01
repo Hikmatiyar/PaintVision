@@ -1,0 +1,41 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title>
+			Manage Profile
+		</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div class="form">
+		<ion-card *ngIf="!edit">
+			<div class="info-group">
+				<h3>Name</h3>
+				<span>{{user.getName()}}</span>
+			</div>
+			<div class="info-group">
+				<h3>Email</h3>
+				<span>{{user.email}}</span>
+			</div>
+
+			<button class="button-primary center" (click)="toggleEdit()">Edit</button>
+		</ion-card>
+
+		<ion-card *ngIf="edit">
+			<div class="form-group">
+				<label for="firstName">First Name</label>
+				<ion-input type="text" id="firstName" placeholder="First name" [(ngModel)]="user.firstName"></ion-input>
+			</div>
+
+			<div class="form-group">
+				<label for="lastName">Last Name</label>
+				<ion-input type="text" id="lastName" placeholder="Last name" [(ngModel)]="user.lastName"></ion-input>
+			</div>
+
+			<button class="button-primary center" (click)="save()">Save Changes</button>
+		</ion-card>
+	</div>
+</ion-content>

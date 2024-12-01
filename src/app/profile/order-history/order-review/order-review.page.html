@@ -1,0 +1,22 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title>Order Review</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-card>
+		<app-job-detail [jobs]="getJobs()"></app-job-detail>
+	</ion-card>
+
+	<ion-card>
+		<app-address-detail [address]="getAddress()"></app-address-detail>
+	</ion-card>
+
+	<ion-card>
+		<app-total-detail [jobs]="getJobs()"></app-total-detail>
+	</ion-card>
+</ion-content>

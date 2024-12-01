@@ -1,0 +1,19 @@
+@import 'src/global.scss';
+
+.job-container {
+	display: inline-block;
+	overflow-y: scroll;
+	padding: 5px;
+	height: calc(100% - #{$checkoutComponentHeight});
+	width: 100%;
+}
+
+.job {
+	padding: 5px;
+}
+
+app-checkout {
+	width: 100%;
+	bottom: 0;
+	position: sticky;
+}

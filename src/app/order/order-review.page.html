@@ -1,0 +1,31 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title>
+			Order Review
+		</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-card class="order-info">
+		<app-job-detail [jobs]="getSelectedJobs()"></app-job-detail>
+	</ion-card>
+
+	<ion-card class="address-card">
+		<ion-card-title>Shipping Address</ion-card-title>
+		<app-address-detail [address]="getAddress()"></app-address-detail>
+	</ion-card>
+
+	<ion-card class="total-card">
+		<ion-card-title>Total</ion-card-title>
+		<app-total-detail [jobs]="getSelectedJobs()"></app-total-detail>
+		<div>
+			<ion-card-content>
+				<ion-button expand="full" color="success" (click)="placeOrder()">Pay Now</ion-button>
+			</ion-card-content>
+		</div>
+	</ion-card>
+</ion-content>

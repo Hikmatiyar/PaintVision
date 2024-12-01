@@ -1,0 +1,12 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-title>
+			{{ getActive().jobName }}
+		</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<app-room-switcher (cameraEnter)="onCameraEnter()"></app-room-switcher>
+	<app-checkout [roomPrice]="getRoomPrice()" (saved)="onSaved()"></app-checkout>
+</ion-content>

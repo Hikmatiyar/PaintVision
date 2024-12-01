@@ -1,0 +1,47 @@
+@import 'src/global.scss';
+
+.header {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	z-index: 5;
+	display: flex;
+	height: 8vh;
+	background-color: #eee;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.add-room {
+	margin: 5px;
+}
+
+select.room-selector {
+	width: 100%;
+	margin: 5px;
+}
+
+.add-window-button {
+	display: flex;
+	align-items: center;
+	margin: 5px;
+
+	>ion-icon {
+		margin-right: 5px;
+	}
+}
+
+.body {
+	height: calc(100% - #{$checkoutComponentHeight});
+	overflow-y: scroll;
+	padding: 5px;
+}
+
+h3 {
+	display: inline;
+}
+
+app-window-form {
+	width: 100%;
+	padding: 8px;
+}

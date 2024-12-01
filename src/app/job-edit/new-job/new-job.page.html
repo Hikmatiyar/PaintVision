@@ -1,0 +1,19 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-title>
+			Start A New Job
+		</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<form #form="ngForm" (ngSubmit)="createNewJob(form)" class="center">
+		<div class="form-group">
+			<label for="job-name" class="control-label">Job Name</label>
+			<input id="job-name" class="form-control" name="jobName" #jobName="ngModel" type="text"
+				[(ngModel)]="model.jobName" placeholder="Job name">
+		</div>
+		<span class="center error" *ngIf="!model.jobName && jobName.dirty">A name is required</span>
+		<button type="submit" class="button-primary" [disabled]="!model.jobName">Create Job</button>
+	</form>
+</ion-content>

@@ -1,0 +1,25 @@
+<div class="job-name" *ngFor="let job of jobs">
+	{{job.jobName}}
+	<div class="room-name" *ngFor="let room of job.rooms">
+		{{room.roomName}}
+		<table class="window-info">
+			<tr>
+				<thead>
+					<th>Window</th>
+					<th>Dimension</th>
+					<th>Quantity</th>
+					<th>Price</th>
+				</thead>
+			</tr>
+			<tr *ngFor="let window of room.windows">
+				<tbody class="thead">
+					<td>{{window.windowName}}</td>
+					<td>{{window.height}} {{job.units}} &times; {{window.width}} {{job.units}}</td>
+					<td>{{window.quantity}}</td>
+					<td>{{getWindowCost(job, window)}}</td>
+				</tbody>
+			</tr>
+		</table>
+	</div>
+	<div class="job-cost">{{job.jobName}} Cost: {{getJobCost(job)}}</div>
+</div>

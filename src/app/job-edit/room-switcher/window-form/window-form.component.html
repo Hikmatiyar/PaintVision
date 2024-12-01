@@ -1,0 +1,67 @@
+<div class="window-header">
+	<div class="expandable" (click)="toggleExpanded()">
+		<h3>{{window.windowName}}</h3>
+		<ion-icon name="arrow-down" *ngIf="!expanded"></ion-icon>
+		<ion-icon name="arrow-up" *ngIf="expanded"></ion-icon>
+	</div>
+	<ion-icon name="trash" (click)="tryDeleteWindow()"></ion-icon>
+</div>
+
+<form #windowForm="ngForm" *ngIf="expanded">
+	<div class="form-group">
+		<label for="name">Name</label>
+		<input type="text" required id="name" [(ngModel)]="window.windowName" name="windowName" #name="ngModel">
+		<span class="error" [hidden]="name.valid || name.pristine">
+			Name is required
+		</span>
+	</div>
+
+	<div>
+		<h4>Dimensions</h4>
+		<a (click)="openCamera()">
+			<ion-icon name="camera"></ion-icon>
+		</a>
+	</div>
+
+	<div class="indent">
+		<div class="form-group">
+			<label for="height">Height</label>
+			<div>
+				<input type="number" required id="height"
+					pattern="(^[1-9][0-9]*(\.[0-9]?[0-9]?[0-9]?[0-9]?)?$)|(0\.[0-9]?[0-9]?[0-9]?[1-9])" step="0.0625"
+					[(ngModel)]="window.height" name="height" #height="ngModel">
+				<span>{{getUnits()}}</span>
+			</div>
+			<span class="error" [hidden]="height.valid || height.pristine">
+				Height has to be &gt; 0 with no more than 4 digits after the decimal
+			</span>
+		</div>
+
+		<div class="form-group">
+			<label for="width">Width</label>
+			<div>
+				<input type="number" required id="width"
+					pattern="(^[1-9][0-9]*(\.[0-9]?[0-9]?[0-9]?[0-9]?)?$)|(0\.[0-9]?[0-9]?[0-9]?[1-9])" step="0.0625"
+					[(ngModel)]="window.width" name="width" #width="ngModel">
+				<span>{{getUnits()}}</span>
+			</div>
+			<span class="error" [hidden]="width.valid || width.pristine">
+				Width has to be &gt; 0 with no more than 4 digits after the decimal
+			</span>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="quantity">Quantity</label>
+		<input type="number" required id="quantity" pattern="^[1-9][0-9]*$" step="1" [(ngModel)]="window.quantity"
+			name="quantity" #quantity="ngModel">
+		<span class="error" [hidden]="quantity.valid || quantity.pristine">
+			Quantity has to be an integer &ge; 1
+		</span>
+	</div>
+
+	<div>
+		<span>Window Price: {{getPrice()}} </span>
+	</div>
+
+</form>

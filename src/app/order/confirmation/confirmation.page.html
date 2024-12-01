@@ -1,0 +1,15 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-title>Order Received</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div>
+		<p>Your order was received!</p>
+		<p>Your order number is: {{getOrderNumber()}}</p>
+		<br />
+
+		<button class="button-primary" (click)="returnToJobList()">Done</button>
+	</div>
+</ion-content>

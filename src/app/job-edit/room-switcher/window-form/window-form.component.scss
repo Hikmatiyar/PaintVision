@@ -1,0 +1,40 @@
+@import 'src/global.scss';
+
+.window-header {
+
+	&,
+	&>.expandable {
+
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	>.expandable {
+		width: 100%;
+		margin-right: 5px;
+	}
+}
+
+.form-group {
+	margin: 10px;
+
+	&>div {
+		display: flex;
+	}
+}
+
+h3,
+h4 {
+	display: inline;
+}
+
+.indent {
+	margin-left: 20px;
+}
+
+.total {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
